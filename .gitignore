@@ -1,0 +1,9 @@
+#lista de archivos y carpetas ignoradas
+
+
+fonts/
+header_truedata.jpg
+header_truedata.zip
+header_truedata2.rar
+nbproject/
+truedataerp.sql
