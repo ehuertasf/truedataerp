@@ -1,5 +1,62 @@
 <html>
 <head>
+            <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAOKHsmBIf-BuJfd4vssIwfRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSf79Ce9m2jj0pVXkXdWir1JWxuAg' type='text/javascript'></script>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+
+            <script type="text/javascript">
+            //<![CDATA[
+
+            var iconBlue = new GIcon(); 
+            iconBlue.image = 'http://labs.google.com/ridefinder/images/mm_20_blue.png';
+            iconBlue.shadow = 'http://labs.google.com/ridefinder/images/mm_20_shadow.png';
+            iconBlue.iconSize = new GSize(12, 20);
+            iconBlue.shadowSize = new GSize(22, 20);
+            iconBlue.iconAnchor = new GPoint(6, 20);
+            iconBlue.infoWindowAnchor = new GPoint(5, 1);
+
+
+
+            var customIcons = [];
+            customIcons["cliente"] = iconBlue;
+
+
+            function load(pedido) {
+
+              if (GBrowserIsCompatible()) {
+                var map = new GMap2(document.getElementById("map"));
+                map.addControl(new GSmallMapControl());
+                map.addControl(new GMapTypeControl());
+//                map.setCenter(new GLatLng(47.614495, -122.341861), 13);
+
+                GDownloadUrl("phpsqlajax_genxml.php?ped="+pedido, function(data) {
+                  var xml = GXml.parse(data);
+                  var markers = xml.documentElement.getElementsByTagName("marker");
+                  for (var i = 0; i < markers.length; i++) {
+                    var point = new GLatLng(parseFloat(markers[i].getAttribute("coord_x")),
+                                            parseFloat(markers[i].getAttribute("coord_y")));
+                    var marker = createMarker(point);
+                    map.addOverlay(marker);
+                  }
+                });
+              }
+            }
+
+            function createMarker(point) {
+                var name="cliente";
+              var marker = new GMarker(point, customIcons["cliente"]);
+              var html = "<b>" + name + "</b> <br/>";
+              GEvent.addListener(marker, 'click', function() {
+                marker.openInfoWindowHtml(html);
+              });
+              return marker;
+            }
+            //]]>
+          </script>
+
+          </head>
+
+        
 	<style type='text/css'>
 		H1.SaltoDePagina {PAGE-BREAK-AFTER: always}
 		<!--
@@ -46,7 +103,7 @@
 		}
 	</script>
 </head>
-<body>
+
 <?php
 
 try{
@@ -109,6 +166,7 @@ try{
                 $cant_averiasxtec=cant_averiasxtec($tecnico, $actuacionxtecnico);
                 $nro_actuaciones = busca($tecnico, $actuacionxtecnico);
                 cabecera_mapa($tecnico,$cant_averiasxtec,$fechadata,$fechaimp,$cant_tecnicos,$nro_actuaciones,$datos[0],$datos[1]);
+                
             }
             
             if ($tecnico!=$tecnico_old)
@@ -173,6 +231,7 @@ try{
             </tr>
             </table>
             <br>
+            </body>
         <?php
             if ($fila==$cant_filas)
             { 	echo "</td></tr></table><br>";
@@ -219,12 +278,17 @@ function cant_averiasxtec($tecnico, $arraytecnicos)
 }
 
 function cabecera_mapa($tecnico,$cant_averiasxtec,$fechadata,$fechaimp,$cant_tecnicos,$nro_actuaciones,$swmdf,$swarmario){
-	echo "<table width='600' border='1'>
+    ?>
+        <body onload='load(13)' onunload='GUnload()'>
+        <div id='map' style='width: 500px; height: 300px'></div>
+        
+        
+        <table width='600' border='1'>
 			<tr><td STYLE='border-style: none'>
 					<table width='680' border='1' style='border-style:none' cellpadding=0 cellspacing=0>
 						<tr><td width='596' colspan='3' align='center' bgcolor='#E5ECF9' class='Estilo3' style='border-style: none'>Tecnico: <b>".$tecnico."</b></td></tr>
 						<tr><td align='center' bgcolor='#E5ECF9' class='Estilo3' style='border-style: inset'>Nro. Ordenes: ".$cant_averiasxtec."</td>
-							<td align='center' bgcolor='#E5ECF9' class='Estilo3' style='border-style: inset'>F/H Impresi&oacute;n: ".$fechaimp."</td>
+							<td align='center' bgcolor='#E5ECF9' class='Estilo3' style='border-style: inset'>F/H Impresi&oacute;n: "<?=$fechaimp?>."</td>
 							<td align='center' bgcolor='#E5ECF9' class='Estilo3' style='border-style: inset'>&nbsp;</td>
 						</tr>
 					</table>
@@ -232,9 +296,23 @@ function cabecera_mapa($tecnico,$cant_averiasxtec,$fechadata,$fechaimp,$cant_tec
 			</tr>
 
 			<tr align='center'>
-				<td class='td2'><br>"; //dentro de esta celda se colocan el detalle de cada orden
+				<td class='td2'><br>
+<?php
 }
- 
+
+
+function obtener_valores_mapa($pedido){
+    $sql="select b.coord_x,b.coord_y from pedido a,geo_comercial b where a.id_pedido=b.id_pedido and a.pedido=".$pedido;
+    
+}
+
+//function markers_mapa($pedido){
+
+?>    
+
+<?php
+
+//}
 ?>
 </body>
 </html>

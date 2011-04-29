@@ -29,16 +29,16 @@ Ext.BLANK_IMAGE_URL = "../librerias/ext-3.0/resources/images/default/s.gif";
             checkColumn,
             {
                id		:'xid_pedido',
-               header	:'N&uacute;m. Pedido',
+               header	:'Pedido',
                dataIndex:'id_pedido',
-               width	:80,
+               width	:50,
                align	:'center'
             },{
                header	:'Fec.Reg.Pedido',
                dataIndex:'f_reg_ped',
                align	:'center',
                type		:'datetime',
-               width	:140
+               width	:100
             },{
                 id		:'xnombre',
                 header	:'Nombre',
@@ -78,7 +78,8 @@ Ext.BLANK_IMAGE_URL = "../librerias/ext-3.0/resources/images/default/s.gif";
         var grid = new Ext.grid.EditorGridPanel({
             store	:dbCliReg,
             cm		:cm,
-            width	:900,
+            autoWidth   :true,
+//            width	:900,   
             height	:400,
             loadMask: true,
             viewConfig: {
@@ -193,7 +194,7 @@ Ext.BLANK_IMAGE_URL = "../librerias/ext-3.0/resources/images/default/s.gif";
         //*******************************************************************************************************//
         var ventana = new Ext.Window({
             title       :'VALIDAR FACILIDADES TECNICAS',
-            width       :1080,
+            autoWidth       :true,
             //height      :700,
             minWidth    :750,
             minHeight   :450,
