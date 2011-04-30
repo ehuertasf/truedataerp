@@ -500,7 +500,7 @@ Ext.onReady(function(){
     var alto_fila1=22;
     var alto_fila2=30;
     var alto_fila3=27;
-    var ancho_ventana_form=900;
+    var ancho_ventana_form=850;
 
 
 
@@ -996,10 +996,10 @@ Ext.onReady(function(){
         //*******************************************************************************************************//
         //VENTANA
         //*******************************************************************************************************//
-
+        var ancho_ventana=ancho_ventana_form+80;
         var ventana = new Ext.Window({
             title       :'REGISTRO DE CLIENTES',
-            width       :ancho_ventana_form,
+            width       :ancho_ventana,
             minWidth    :750,
             autoHeight  :true,
             layout      :'fit',

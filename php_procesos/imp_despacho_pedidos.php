@@ -1,6 +1,11 @@
 <html>
 <head>
-            <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAOKHsmBIf-BuJfd4vssIwfRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSf79Ce9m2jj0pVXkXdWir1JWxuAg' type='text/javascript'></script>
+<!--            <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAOKHsmBIf-BuJfd4vssIwfRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSf79Ce9m2jj0pVXkXdWir1JWxuAg' type='text/javascript'></script>-->
+            
+    <?php
+    include_once("conexion.php");
+    include('../gmaps/keymap.php');
+    ?>
             <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
 

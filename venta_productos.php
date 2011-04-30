@@ -13,8 +13,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>Productos y Servicios</title>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAOKHsmBIf-BuJfd4vssIwfRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSf79Ce9m2jj0pVXkXdWir1JWxuAg" type="text/javascript"></script>
 
+    <?php
+    /**
+     * incluimos el key de google maps dependiendo de la ip del server donde esta nuestra aplicacion
+     */
+    include('gmaps/keymap.php');
+    ?>
 <script type="text/javascript" src="js/GMapPanel.js"></script>
 
 
