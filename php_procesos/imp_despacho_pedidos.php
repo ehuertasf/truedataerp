@@ -1,11 +1,9 @@
 <html>
 <head>
-<!--            <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAOKHsmBIf-BuJfd4vssIwfRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSf79Ce9m2jj0pVXkXdWir1JWxuAg' type='text/javascript'></script>-->
-            
-    <?php
-    include_once("conexion.php");
-    include('../gmaps/keymap.php');
-    ?>
+        <?php
+            include_once("conexion.php");
+            include('../sgmaps/keymap.php');
+        ?>
             <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
 
@@ -32,7 +30,8 @@
                 var map = new GMap2(document.getElementById("map"));
                 map.addControl(new GSmallMapControl());
                 map.addControl(new GMapTypeControl());
-//                map.setCenter(new GLatLng(47.614495, -122.341861), 13);
+                var center = new GLatLng(-8.537565, -71.850586);
+                map.setCenter(center, 5);
 
                 GDownloadUrl("phpsqlajax_genxml.php?ped="+pedido, function(data) {
                   var xml = GXml.parse(data);
