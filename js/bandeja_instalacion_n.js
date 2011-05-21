@@ -519,7 +519,7 @@ Ext.onReady(function(){
         typeAhead: true,
         mode: 'local',
         triggerAction: 'all',
-        emptyText:'Selecciona una accion...',
+        emptyText:'Selecciona una acci\u00F3n...',
         selectOnFocus:true,
         listeners: {
             select: function(f,r,i){
