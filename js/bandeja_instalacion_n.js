@@ -20,15 +20,16 @@ Ext.onReady(function(){
             baseParams:{
                 f:1
             },
-            reader: new Ext.data.JsonReader({root: 'lst_registrados'},
+            reader: new Ext.data.JsonReader({root: 'lst_programados'},
                 [{name    :'id_pedido',mapping :'id_pedido'},
                  {name    :'f_reg_ped',mapping :'f_reg_ped' },
                  {name    :'f_prg_ped',mapping :'f_prg_ped' },
                  {name    :'id_tecnico',mapping :'id_tecnico' },
                  {name    :'nom_tecnico',mapping :'nom_tecnico'},
                  {name    :'nombre',mapping :'nombre'},
+                 {name    :'codcli',mapping :'codcli'},
                  {name    :'direccion',mapping :'direccion'},
-                 {name    :'id_cliente',mapping :'id_cliente'},
+                 {name    :'id_cliente',mapping :'codcli'},
                  {name    :'telefono_casa',mapping :'telefono_casa'},
                  {name    :'ref_familiar',mapping :'ref_familiar'}
                  
@@ -706,7 +707,7 @@ Ext.onReady(function(){
                 width	:150
             },
             {
-                fieldLabel: 'Codigo Cliente',
+                fieldLabel: 'C\u00F3digo Cliente',
                 name: 'id_cliente',
                 readOnly:true,
                 width	:70
