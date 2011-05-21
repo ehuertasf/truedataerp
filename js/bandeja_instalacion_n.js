@@ -515,7 +515,7 @@ Ext.onReady(function(){
         store: store_acciones,
         displayField:'desc_estado',
         valueField	:'id_estado',
-        fieldLabel: 'Accion',
+        fieldLabel: 'Acci\u00F3n',
         typeAhead: true,
         mode: 'local',
         triggerAction: 'all',
@@ -760,21 +760,21 @@ Ext.onReady(function(){
     },
 
     {
-        header: "Fec. Inscripcion", 
+        header: "Fec. Inscripci\u00F3n", 
         width: 110, 
         sortable: true,
         dataIndex: 'f_reg_ped'
     },
 
     {
-        header: "Fec. Programacion", 
+        header: "Fec. Programaci\u00F3n", 
         width: 110, 
         sortable: true,
         dataIndex: 'f_prg_ped'
     },
 
     {
-        header: "Tecnico", 
+        header: "T\u00E9cnico", 
         width: 160, 
         sortable: true, 
         dataIndex: 'nom_tecnico'
@@ -806,7 +806,7 @@ Ext.onReady(function(){
                 }),
                 //autoExpandColumn: 'Tecnico',
                 height: 350,
-                title:'Instalacion de Pedidos',
+                title:'Instalaci\u00F3n de Pedidos',
                 border: true,
                 listeners: {
                     render: function(g) {
@@ -837,13 +837,13 @@ Ext.onReady(function(){
                 width	:70
             },
             {
-                fieldLabel: 'Fec.Inscripcion',
+                fieldLabel: 'Fec.Inscripci\u00F3n',
                 name: 'f_reg_ped',
                 readOnly:true,
                 width	:150
             },
             {
-                fieldLabel: 'Fec.Programacion',
+                fieldLabel: 'Fec.Programaci\u00F3n',
                 name: 'f_prg_ped',
                 readOnly:true,
                 width	:150
@@ -861,20 +861,20 @@ Ext.onReady(function(){
                 columnWidth:.50
             },
             {
-                fieldLabel: 'Telefono Casa',
+                fieldLabel: 'Tel\u00E9fono Casa',
                 name: 'telefono_casa',
                 readOnly:true,
                 width	:70,
                 columnWidth:.50
             }
             ,{
-                fieldLabel: 'Direccion',
+                fieldLabel: 'Direcci\u00F3n',
                 name: 'direccion',
                 readOnly:true,
                 width	:300
             }
             ,{
-                fieldLabel: 'Observacion',
+                fieldLabel: 'Observaci\u00F3n',
                 name: 'ref_familiar',
                 readOnly:true,
                 width	:300
